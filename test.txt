@@ -1,0 +1,68 @@
+*****node01*****
+###node status before all cmd:
+ jsp       300624  0.4  0.1 4938992 46256 ?       Sl   18:05   0:00 /home/jsp/eth/t-rex -a ethash -o stratum+tcp://asia1.ethermine.org:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node01
+jsp       300672  1.9  0.8 10786928 272124 ?     Sl   18:05   0:02 /home/jsp/eth/t-rex --watchdog-version 0.24.4 -a ethash -o stratum+tcp://asia1.ethermine.org:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node01 --watchdog-pipe /tmp/trex300624
+
+#Want to check node current status
+Checking status
+output:jsp       300624  0.4  0.1 4938992 46256 ?       Sl   18:05   0:00 /home/jsp/eth/t-rex -a ethash -o stratum+tcp://asia1.ethermine.org:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node01
+jsp       300672  1.9  0.8 10786928 272124 ?     Sl   18:05   0:02 /home/jsp/eth/t-rex --watchdog-version 0.24.4 -a ethash -o stratum+tcp://asia1.ethermine.org:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node01 --watchdog-pipe /tmp/trex300624
+
+| 36%   70C    P2   229W / 300W |   4800MiB / 11019MiB |    100%      Default |
+*****node03*****
+###node status before all cmd:
+ jsp       296194  0.4  0.1 4938992 44124 ?       Sl   18:05   0:00 /home/jsp/eth/t-rex -a ethash -o stratum+ssl://eth-hk.flexpool.io:5555 -o stratum+ssl://eth-hke.flexpool.io:5555 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node03
+jsp       296241  1.8  0.8 10721392 274348 ?     Sl   18:05   0:02 /home/jsp/eth/t-rex --watchdog-version 0.24.4 -a ethash -o stratum+ssl://eth-hk.flexpool.io:5555 -o stratum+ssl://eth-hke.flexpool.io:5555 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node03 --watchdog-pipe /tmp/trex296194
+
+#Want to check node current status
+Checking status
+output:jsp       296194  0.4  0.1 4938992 44124 ?       Sl   18:05   0:00 /home/jsp/eth/t-rex -a ethash -o stratum+ssl://eth-hk.flexpool.io:5555 -o stratum+ssl://eth-hke.flexpool.io:5555 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node03
+jsp       296241  1.8  0.8 10721392 274348 ?     Sl   18:05   0:02 /home/jsp/eth/t-rex --watchdog-version 0.24.4 -a ethash -o stratum+ssl://eth-hk.flexpool.io:5555 -o stratum+ssl://eth-hke.flexpool.io:5555 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node03 --watchdog-pipe /tmp/trex296194
+
+| 59%   68C    P2   251W / 260W |   4800MiB / 11019MiB |    100%      Default |
+*****node39*****
+###node status before all cmd:
+ jsp       527263  0.4  0.2 4938996 44416 ?       Sl   18:05   0:00 /home/jsp/eth/t-rex -a ethash -o stratum+tcp://asia1.ethermine.org:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node39
+jsp       527306  1.8  1.5 10668152 256292 ?     Sl   18:05   0:02 /home/jsp/eth/t-rex --watchdog-version 0.24.4 -a ethash -o stratum+tcp://asia1.ethermine.org:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node39 --watchdog-pipe /tmp/trex527263
+
+#Want to check node current status
+Checking status
+output:jsp       527263  0.4  0.2 4938996 44416 ?       Sl   18:05   0:00 /home/jsp/eth/t-rex -a ethash -o stratum+tcp://asia1.ethermine.org:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node39
+jsp       527306  1.8  1.5 10668152 256292 ?     Sl   18:05   0:02 /home/jsp/eth/t-rex --watchdog-version 0.24.4 -a ethash -o stratum+tcp://asia1.ethermine.org:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node39 --watchdog-pipe /tmp/trex527263
+
+| 52%   70C    P2   147W / 170W |   4728MiB /  5934MiB |    100%      Default |
+*****node40*****
+###node status before all cmd:
+ jsp       330648  0.4  0.2 4938996 44428 ?       Sl   18:05   0:00 /home/jsp/eth/t-rex -a ethash -o stratum+tcp://asia1.ethermine.org:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node40
+jsp       330694  1.7  1.6 10668148 258328 ?     Sl   18:05   0:02 /home/jsp/eth/t-rex --watchdog-version 0.24.4 -a ethash -o stratum+tcp://asia1.ethermine.org:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node40 --watchdog-pipe /tmp/trex330648
+
+#Want to check node current status
+Checking status
+output:jsp       330648  0.4  0.2 4938996 44428 ?       Sl   18:05   0:00 /home/jsp/eth/t-rex -a ethash -o stratum+tcp://asia1.ethermine.org:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node40
+jsp       330694  1.7  1.6 10668148 258328 ?     Sl   18:05   0:02 /home/jsp/eth/t-rex --watchdog-version 0.24.4 -a ethash -o stratum+tcp://asia1.ethermine.org:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node40 --watchdog-pipe /tmp/trex330648
+
+| 49%   68C    P2   147W / 170W |   4728MiB /  5934MiB |    100%      Default |
+*****node41*****
+###node status before all cmd:
+ jsp       317319  0.3  0.2 4938996 44416 ?       Sl   18:05   0:00 /home/jsp/eth/t-rex -a ethash -o stratum+ssl://eth-hk.flexpool.io:5555 -o stratum+ssl://eth-hke.flexpool.io:5555 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node41
+jsp       317365  1.7  1.6 10658584 260888 ?     Sl   18:05   0:02 /home/jsp/eth/t-rex --watchdog-version 0.24.4 -a ethash -o stratum+ssl://eth-hk.flexpool.io:5555 -o stratum+ssl://eth-hke.flexpool.io:5555 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node41 --watchdog-pipe /tmp/trex317319
+
+#Want to check node current status
+Checking status
+output:jsp       317319  0.3  0.2 4938996 44416 ?       Sl   18:05   0:00 /home/jsp/eth/t-rex -a ethash -o stratum+ssl://eth-hk.flexpool.io:5555 -o stratum+ssl://eth-hke.flexpool.io:5555 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node41
+jsp       317365  1.7  1.6 10658584 260888 ?     Sl   18:05   0:02 /home/jsp/eth/t-rex --watchdog-version 0.24.4 -a ethash -o stratum+ssl://eth-hk.flexpool.io:5555 -o stratum+ssl://eth-hke.flexpool.io:5555 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node41 --watchdog-pipe /tmp/trex317319
+
+|  0%   76C    P2   146W / 170W |   4728MiB /  5934MiB |    100%      Default |
+*****node42*****
+###node status before all cmd:
+ jsp       371306  0.3  0.2 4938996 44032 ?       Sl   18:05   0:00 /home/jsp/eth/t-rex -a ethash -o stratum+ssl://eth-hk.flexpool.io:5555 -o stratum+ssl://eth-hke.flexpool.io:5555 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node42
+jsp       371352  1.7  1.6 10658580 260208 ?     Sl   18:05   0:02 /home/jsp/eth/t-rex --watchdog-version 0.24.4 -a ethash -o stratum+ssl://eth-hk.flexpool.io:5555 -o stratum+ssl://eth-hke.flexpool.io:5555 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node42 --watchdog-pipe /tmp/trex371306
+
+#Want to check node current status
+Checking status
+output:jsp       371306  0.3  0.2 4938996 44032 ?       Sl   18:05   0:00 /home/jsp/eth/t-rex -a ethash -o stratum+ssl://eth-hk.flexpool.io:5555 -o stratum+ssl://eth-hke.flexpool.io:5555 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node42
+jsp       371352  1.7  1.6 10658580 260208 ?     Sl   18:05   0:02 /home/jsp/eth/t-rex --watchdog-version 0.24.4 -a ethash -o stratum+ssl://eth-hk.flexpool.io:5555 -o stratum+ssl://eth-hke.flexpool.io:5555 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w node42 --watchdog-pipe /tmp/trex371306
+
+| 48%   67C    P2   135W / 170W |   4728MiB /  5934MiB |    100%      Default |
+No such file or directory
+doing final grep check. If the following is empty, it is done.

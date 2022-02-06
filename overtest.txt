@@ -1,0 +1,48 @@
+
+$nodename: node39 for GPU overclock
+Product Name $1,$2: Product Name,2060
+Fan Speed $1,$2: Fan Speed,57
+GPU Current Temp $1,$2: GPU Current Temp,71
+Power Draw $1,$2: Power Draw,149
+Power Limit $1,$2: Power Limit,170
+Min Power Limit $1,$2: Min Power Limit,125
+Max Power Limit $1,$2: Max Power Limit,204
+clockL $clockL:134
+Max Clocks $maxclockL:145
+$max: Graphics                          : 2145 MHz
+Max Graphics $1,$2: Graphics,2145
+$max: SM                                : 2145 MHz
+$max: Memory                            : 7001 MHz
+Max Memory $1,$2: Memory,7001
+$max: Video                             : 1950 MHz
+$clocks: 135, Graphics                          : 1935 MHz
+Graphics $1,$2: Graphics,1935
+$clocks: 136, SM                                : 1935 MHz
+$clocks: 137, Memory                            : 6801 MHz
+Memory $1,$2: Memory,6801
+$clocks: 138, Video                             : 1785 MHz
+==========Node name: node39=========
+    Product Name                          : NVIDIA GeForce RTX 2060
+*Before overclock
+    Clocks
+        Graphics                          : 1935 MHz
+        SM                                : 1935 MHz
+        Memory                            : 6801 MHz
+        Video                             : 1785 MHz
+    Fan Speed                             : 57 %
+        GPU Current Temp                  : 71 C
+        Power Draw                        : 149.91 W
+        Min Power Limit                   : 125.00 W
+        Max Power Limit                   : 204.00 W
+
+#After overclock
+    Clocks
+        Graphics                          : 1935 MHz
+        SM                                : 1935 MHz
+        Memory                            : 6801 MHz
+        Video                             : 1785 MHz
+    Fan Speed                             : 57 %
+        GPU Current Temp                  : 71 C
+        Power Draw                        : 149.63 W
+        Min Power Limit                   : 125.00 W
+        Max Power Limit                   : 204.00 W

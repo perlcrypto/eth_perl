@@ -18,8 +18,8 @@ nvidia-smi pmon  : dynamically process monitor
 #nvidia-settings -q gpucoretemp (-t for temp only)
 my %OCsetting = (
     # power w, core freq, mem freq, Fan
-    2060 => [125,"-200","+1200",80],#2060 --fan 99  --templimit 80
-    2080 => [],#2080 Ti --fan 80  --templimit 65
+    2060 => [125,"+200","+1300",85],#2060 --fan 99  --templimit 80
+    2080 => [180,"+200","+1800",85],#2080 Ti --fan 80  --templimit 65
 );
 
 my $dnf_install = "no"; # yes for the first time setting
@@ -27,7 +27,7 @@ my $overclock = "yes";
 my $gpu_info = "yes";
 
 my %nodes = (
-    161 => [40],#[1,3,39..42 ]
+    161 => [1,3,39..42 ],
     182 => [20..24 ]
     );
 my $ip = `ip a`;    

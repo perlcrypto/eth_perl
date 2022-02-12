@@ -1,6 +1,6 @@
 #*/1 * * * * /usr/bin/perl ~/eth_scripts/sbatch_gpu.pl
-*/10 * * * * /usr/bin/perl ~/eth_scripts/background_gpu.pl
+*/10 * * * * /usr/bin/perl ~/eth_perl/background_gpu.pl
 #25 07 * * 1-6 /usr/local/bin/squeue -u jsp|grep -v JOBID|grep dp_c*|awk '{print $1}'|xargs /usr/local/bin/scancel
 #0 8-22/2 * * * /usr/bin/perl ~/eth_scripts/sbatch_gpu.pl
 #20 9-22/2 * * 1-6 /usr/local/bin/squeue -u jsp|grep -v JOBID|grep dp_c*|awk '{print $1}'|xargs /usr/local/bin/scancel
-@reboot sleep 60;/usr/bin/perl ~/eth_scripts/background_gpu.pl
+@reboot sleep 60;/usr/bin/perl ~/eth_perl/background_gpu.pl

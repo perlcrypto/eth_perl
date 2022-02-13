@@ -1,4 +1,12 @@
 =b
+### watch for exec folder setting
+~/gminer_2_75/miner --algo ethash --server 18.167.166.214:5555 --ssl 1 \
+         --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE.node42
+
+ $mining_cmd = "nohup ~/eth/t-rex -a ethash -o stratum+tcp://18.167.166.214:4444 \\
+ -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w $nodename 2>&1 >/dev/null &";
+ 
+ $mining_cmd ="nohup ~/lolminer/lolMiner --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename-$cluster --dualmode TONDUAL --dualpool https://server1.whalestonpool.com --dualuser EQBhjbH5YjuNqskpDdDNib_M4ujBj8SM0UeqEmMtUkRGJTYS --worker $nodename-$cluster 2>&1 >/dev/null &";
 conducting gpu eth submission 
 =cut
 use warnings;
@@ -6,13 +14,20 @@ use strict;
 use Parallel::ForkManager;
 my $forkNo = 1;
 my $pm = Parallel::ForkManager->new("$forkNo");
-my $miner = "t-rex";# or t-rex
-##the following settings are only workable for MS windows
-my %overclock = (
-    2060 => " --pl 72 --mclock +700 --cclock -50 ",#2060 --fan 99  --templimit 80
-    2080 => " --pl 60 --mclock +1100 --cclock -200 ",#2080 Ti --fan 80  --templimit 65
-);
-my @nodes = (1,3,39..42);
+
+my $miner = "t-rex";# or lolminer
+
+my %nodes = (
+    161 => [1,3,39..42],#1,3,39..
+    182 => [20..24]
+    );
+my $ip = `ip a`;    
+$ip =~ /140\.117\.\d+\.(\d+)/;
+my $cluster = $1;
+$cluster =~ s/^\s+|\s+$//;
+#print "\$cluster: $cluster\n";
+my @nodes = @{$nodes{$cluster}};#get node information
+
 #my $killjobs = "yes";
 my $sumitjobs = "yes";
 
@@ -38,12 +53,20 @@ $pm->start and next;
         #$mining_cmd = "nohup ~/eth/t-rex -a ethash -o stratum+tcp://3.35.19.54:4444 \\
         #-u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w $nodename 2>&1 >/dev/null &";
         #HK
-        # $mining_cmd = "nohup ~/eth/t-rex -a ethash -o stratum+tcp://18.167.166.214:4444 \\
-        #-u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w $nodename 2>&1 >/dev/null &";
+        if($miner eq "t-rex"){
+        $mining_cmd = "nohup ~/eth/t-rex -a ethash -o stratum+tcp://18.167.166.214:4444 \\
+        -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w $nodename 2>&1 >/dev/null &";
+        }
+        elsif($miner eq "lolminer"){
+        $mining_cmd ="nohup ~/lolminer/lolMiner --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename-$cluster --dualmode TONDUAL --dualpool https://server1.whalestonpool.com --dualuser EQBhjbH5YjuNqskpDdDNib_M4ujBj8SM0UeqEmMtUkRGJTYS --worker $nodename-$cluster 2>&1 >/dev/null &";
+        }
         #redir for ssl(not work)
         #gminer:
-         $mining_cmd = "nohup ~/gminer_2_75/miner --algo ethash --server 18.167.166.214:5555 --ssl 1 \\
-         --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename 2>&1 >/dev/null &";
+        # $mining_cmd = "nohup ~/gminer_2_75/miner --algo ethash --server 18.167.166.214:5555 --ssl 1 \\
+        # --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename 2>&1 >/dev/null &";
+        #  $mining_cmd = "nohup ~/gminer_2_75/miner --algo ethash --server 18.167.166.214:4444 \\
+        # --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename 2>&1 >/dev/null &";
+
 =b
          ~/GMinerRelease/miner --algo ethash --server 18.167.166.214:5555 --ssl 1 \
          --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE.node01 --pl 60 --mclock +1100 --cclock -200

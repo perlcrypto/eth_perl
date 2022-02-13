@@ -1,10 +1,9 @@
 
 $nodename: node01 for GPU overclock
 Product Name $1,$2: Product Name,2080
-Fan Speed $1,$2: Fan Speed,44
-GPU Current Temp $1,$2: GPU Current Temp,73
-Power Draw $1,$2: Power Draw,235
-Power Limit $1,$2: Power Limit,300
+Fan Speed $1,$2: Fan Speed,85
+GPU Current Temp $1,$2: GPU Current Temp,43
+Power Limit $1,$2: Power Limit,180
 Min Power Limit $1,$2: Min Power Limit,150
 Max Power Limit $1,$2: Max Power Limit,330
 clockL $clockL:136
@@ -15,23 +14,23 @@ $max: SM                                : 2190 MHz
 $max: Memory                            : 7000 MHz
 Max Memory $1,$2: Memory,7000
 $max: Video                             : 1950 MHz
-$clocks: 137, Graphics                          : 1860 MHz
-Graphics $1,$2: Graphics,1860
-$clocks: 138, SM                                : 1860 MHz
-$clocks: 139, Memory                            : 6800 MHz
-Memory $1,$2: Memory,6800
-$clocks: 140, Video                             : 1725 MHz
+$clocks: 137, Graphics                          : 1350 MHz
+Graphics $1,$2: Graphics,1350
+$clocks: 138, SM                                : 1350 MHz
+$clocks: 139, Memory                            : 7699 MHz
+Memory $1,$2: Memory,7699
+$clocks: 140, Video                             : 1245 MHz
 ==========Node name: node01=========
     Product Name                          : NVIDIA GeForce RTX 2080 Ti
 *Before overclock
     Clocks
-        Graphics                          : 1860 MHz
-        SM                                : 1860 MHz
-        Memory                            : 6800 MHz
-        Video                             : 1725 MHz
-    Fan Speed                             : 44 %
-        GPU Current Temp                  : 73 C
-        Power Draw                        : 235.13 W
+        Graphics                          : 1350 MHz
+        SM                                : 1350 MHz
+        Memory                            : 7699 MHz
+        Video                             : 1245 MHz
+    Fan Speed                             : 85 %
+        GPU Current Temp                  : 43 C
+        Power Draw                        : 74.07 W
         Min Power Limit                   : 150.00 W
         Max Power Limit                   : 330.00 W
 
@@ -41,9 +40,9 @@ $clocks: 140, Video                             : 1725 MHz
         SM                                : 390 MHz
         Memory                            : 5000 MHz
         Video                             : 810 MHz
-    Fan Speed                             : 93 %
-        GPU Current Temp                  : 64 C
-        Power Draw                        : 48.35 W
+    Fan Speed                             : 85 %
+        GPU Current Temp                  : 43 C
+        Power Draw                        : 42.26 W
         Min Power Limit                   : 150.00 W
         Max Power Limit                   : 330.00 W
 
@@ -89,189 +88,5 @@ $clocks: 131, Video                             : Unknown Error
         GPU Current Temp                  : 56 C
         Power Draw                        : Unknown Error
         Min Power Limit                   : 100.00 W
-        Max Power Limit                   : 300.00 W
 
 $nodename: node39 for GPU overclock
-Product Name $1,$2: Product Name,2060
-GPU Current Temp $1,$2: GPU Current Temp,62
-Power Limit $1,$2: Power Limit,170
-Min Power Limit $1,$2: Min Power Limit,125
-Max Power Limit $1,$2: Max Power Limit,204
-clockL $clockL:136
-Max Clocks $maxclockL:147
-$max: Graphics                          : 2145 MHz
-Max Graphics $1,$2: Graphics,2145
-$max: SM                                : 2145 MHz
-$max: Memory                            : 7001 MHz
-Max Memory $1,$2: Memory,7001
-$max: Video                             : 1950 MHz
-$clocks: 137, Graphics                          : 1365 MHz
-Graphics $1,$2: Graphics,1365
-$clocks: 138, SM                                : 1365 MHz
-$clocks: 139, Memory                            : 7000 MHz
-Memory $1,$2: Memory,7000
-$clocks: 140, Video                             : 1275 MHz
-==========Node name: node39=========
-    Product Name                          : NVIDIA GeForce RTX 2060
-*Before overclock
-    Clocks
-        Graphics                          : 1365 MHz
-        SM                                : 1365 MHz
-        Memory                            : 7000 MHz
-        Video                             : 1275 MHz
-    Fan Speed                             : 46 %
-        GPU Current Temp                  : 62 C
-        Power Draw                        : 36.24 W
-        Min Power Limit                   : 125.00 W
-        Max Power Limit                   : 204.00 W
-
-#After overclock
-    Clocks
-        Graphics                          : 1365 MHz
-        SM                                : 1365 MHz
-        Memory                            : 7650 MHz
-        Video                             : 1275 MHz
-    Fan Speed                             : 90 %
-        GPU Current Temp                  : 61 C
-        Power Draw                        : 49.69 W
-        Min Power Limit                   : 125.00 W
-        Max Power Limit                   : 204.00 W
-
-$nodename: node40 for GPU overclock
-Product Name $1,$2: Product Name,2060
-Fan Speed $1,$2: Fan Speed,16
-GPU Current Temp $1,$2: GPU Current Temp,62
-Power Limit $1,$2: Power Limit,170
-Min Power Limit $1,$2: Min Power Limit,125
-Max Power Limit $1,$2: Max Power Limit,204
-clockL $clockL:136
-Max Clocks $maxclockL:147
-$max: Graphics                          : 2145 MHz
-Max Graphics $1,$2: Graphics,2145
-$max: SM                                : 2145 MHz
-$max: Memory                            : 7001 MHz
-Max Memory $1,$2: Memory,7001
-$max: Video                             : 1950 MHz
-$clocks: 137, Graphics                          : 1365 MHz
-Graphics $1,$2: Graphics,1365
-$clocks: 138, SM                                : 1365 MHz
-$clocks: 139, Memory                            : 7000 MHz
-Memory $1,$2: Memory,7000
-$clocks: 140, Video                             : 1260 MHz
-==========Node name: node40=========
-    Product Name                          : NVIDIA GeForce RTX 2060
-*Before overclock
-    Clocks
-        Graphics                          : 1365 MHz
-        SM                                : 1365 MHz
-        Memory                            : 7000 MHz
-        Video                             : 1260 MHz
-    Fan Speed                             : 33 %
-        GPU Current Temp                  : 62 C
-        Power Draw                        : 36.63 W
-        Min Power Limit                   : 125.00 W
-        Max Power Limit                   : 204.00 W
-
-#After overclock
-    Clocks
-        Graphics                          : 1365 MHz
-        SM                                : 1365 MHz
-        Memory                            : 7650 MHz
-        Video                             : 1260 MHz
-    Fan Speed                             : 90 %
-        GPU Current Temp                  : 60 C
-        Power Draw                        : 49.99 W
-        Min Power Limit                   : 125.00 W
-        Max Power Limit                   : 204.00 W
-
-$nodename: node41 for GPU overclock
-Product Name $1,$2: Product Name,2060
-GPU Current Temp $1,$2: GPU Current Temp,61
-Power Limit $1,$2: Power Limit,170
-Min Power Limit $1,$2: Min Power Limit,125
-Max Power Limit $1,$2: Max Power Limit,204
-clockL $clockL:136
-Max Clocks $maxclockL:147
-$max: Graphics                          : 2145 MHz
-Max Graphics $1,$2: Graphics,2145
-$max: SM                                : 2145 MHz
-$max: Memory                            : 7001 MHz
-Max Memory $1,$2: Memory,7001
-$max: Video                             : 1950 MHz
-$clocks: 137, Graphics                          : 1365 MHz
-Graphics $1,$2: Graphics,1365
-$clocks: 138, SM                                : 1365 MHz
-$clocks: 139, Memory                            : 7000 MHz
-Memory $1,$2: Memory,7000
-$clocks: 140, Video                             : 1260 MHz
-==========Node name: node41=========
-    Product Name                          : NVIDIA GeForce RTX 2060
-*Before overclock
-    Clocks
-        Graphics                          : 1365 MHz
-        SM                                : 1365 MHz
-        Memory                            : 7000 MHz
-        Video                             : 1260 MHz
-    Fan Speed                             : 36 %
-        GPU Current Temp                  : 61 C
-        Power Draw                        : 29.00 W
-        Min Power Limit                   : 125.00 W
-        Max Power Limit                   : 204.00 W
-
-#After overclock
-    Clocks
-        Graphics                          : 1365 MHz
-        SM                                : 1365 MHz
-        Memory                            : 7650 MHz
-        Video                             : 1260 MHz
-    Fan Speed                             : 95 %
-        GPU Current Temp                  : 60 C
-        Power Draw                        : 42.24 W
-        Min Power Limit                   : 125.00 W
-        Max Power Limit                   : 204.00 W
-
-$nodename: node42 for GPU overclock
-Product Name $1,$2: Product Name,2060
-GPU Current Temp $1,$2: GPU Current Temp,50
-Power Limit $1,$2: Power Limit,170
-Min Power Limit $1,$2: Min Power Limit,125
-Max Power Limit $1,$2: Max Power Limit,204
-clockL $clockL:136
-Max Clocks $maxclockL:147
-$max: Graphics                          : 2145 MHz
-Max Graphics $1,$2: Graphics,2145
-$max: SM                                : 2145 MHz
-$max: Memory                            : 7001 MHz
-Max Memory $1,$2: Memory,7001
-$max: Video                             : 1950 MHz
-$clocks: 137, Graphics                          : 1365 MHz
-Graphics $1,$2: Graphics,1365
-$clocks: 138, SM                                : 1365 MHz
-$clocks: 139, Memory                            : 7000 MHz
-Memory $1,$2: Memory,7000
-$clocks: 140, Video                             : 1275 MHz
-==========Node name: node42=========
-    Product Name                          : NVIDIA GeForce RTX 2060
-*Before overclock
-    Clocks
-        Graphics                          : 1365 MHz
-        SM                                : 1365 MHz
-        Memory                            : 7000 MHz
-        Video                             : 1275 MHz
-    Fan Speed                             : 0 %
-        GPU Current Temp                  : 50 C
-        Power Draw                        : 35.77 W
-        Min Power Limit                   : 125.00 W
-        Max Power Limit                   : 204.00 W
-
-#After overclock
-    Clocks
-        Graphics                          : 1365 MHz
-        SM                                : 1365 MHz
-        Memory                            : 7650 MHz
-        Video                             : 1275 MHz
-    Fan Speed                             : 91 %
-        GPU Current Temp                  : 50 C
-        Power Draw                        : 39.03 W
-        Min Power Limit                   : 125.00 W
-        Max Power Limit                   : 204.00 W

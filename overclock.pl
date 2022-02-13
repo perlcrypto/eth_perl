@@ -18,8 +18,9 @@ nvidia-smi pmon  : dynamically process monitor
 #nvidia-settings -q gpucoretemp (-t for temp only)
 my %OCsetting = (
     # power w, core freq, mem freq, Fan
-    2060 => [125,"+200","+1300",85],#2060 --fan 99  --templimit 80
-    2080 => [180,"+200","+1800",85],#2080 Ti --fan 80  --templimit 65
+    #currentlt, only power is adjusted
+    2060 => [125,"+2145","+7600",85],#2060 --fan 99  --templimit 80
+    2080 => [180,"+0","+1800",85],#2080 Ti --fan 80  --templimit 65
 );
 
 my $dnf_install = "no"; # yes for the first time setting
@@ -27,7 +28,7 @@ my $overclock = "yes";
 my $gpu_info = "yes";
 
 my %nodes = (
-    161 => [1,3,39..42 ],
+    161 => [39],#1,3,39..
     182 => [20..24 ]
     );
 my $ip = `ip a`;    
@@ -127,16 +128,19 @@ if($overclock eq "yes"){
         # power w, core freq, mem freq, Fan
 
         `sed -i 's:nvidia-smi -i 0 -pl .*:nvidia-smi -i 0 -pl $oc_setting[0]:' OC_$nodename.sh`;
-        `sed -i '/GPUGraphicsClockOffset/d' OC_$nodename.sh`;
-        `sed -i '/#GRA_anchor/a nvidia-settings -a "[gpu:0]/GPUGraphicsClockOffset[4]=$oc_setting[1]"' OC_$nodename.sh`;   
-        
-        `sed -i '/GPUMemoryTransferRateOffset/d' OC_$nodename.sh`;
-        `sed -i '/#MEM_anchor/a nvidia-settings -a "[gpu:0]/GPUMemoryTransferRateOffset[4]=$oc_setting[2]"' OC_$nodename.sh`;   
+
+       # `sed -i '/GPUGraphicsClockOffset/d' OC_$nodename.sh`;
+       # `sed -i '/#GRA_anchor/a nvidia-settings -a "[gpu:0]/GPUGraphicsClockOffset[4]=$oc_setting[1]"' OC_$nodename.sh`;   
+       # 
+       # `sed -i '/GPUMemoryTransferRateOffset/d' OC_$nodename.sh`;
+       # `sed -i '/#MEM_anchor/a nvidia-settings -a "[gpu:0]/GPUMemoryTransferRateOffset[4]=$oc_setting[2]"' OC_$nodename.sh`;   
 
         `sed -i '/GPUTargetFanSpeed/d' OC_$nodename.sh`;
         `sed -i '/#Fan_anchor/a nvidia-settings -a "[fan:0]/GPUTargetFanSpeed=$oc_setting[3]"' OC_$nodename.sh`;   
         system("scp  ./OC_$nodename.sh root\@$nodename:/root");
         system("$cmd 'chmod 755 ./OC_$nodename.sh'");
+        #die;
+        `$cmd 'rm -f ./nohup.out'`;
         `$cmd 'nohup ./OC_$nodename.sh'`;
         `$cmd 'rm ./OC_$nodename.sh'`;
         `rm -f ./OC_$nodename.sh`;

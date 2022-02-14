@@ -21,6 +21,7 @@ my %OCsetting = (
     #currentlt, only power is adjusted
     2060 => [125,"+2145","+7600",85],#2060 --fan 99  --templimit 80
     2080 => [180,"+0","+1800",85],#2080 Ti --fan 80  --templimit 65
+    3060 => [120,"+200","+1300",95]
 );
 
 my $dnf_install = "no"; # yes for the first time setting
@@ -129,11 +130,11 @@ if($overclock eq "yes"){
 
         `sed -i 's:nvidia-smi -i 0 -pl .*:nvidia-smi -i 0 -pl $oc_setting[0]:' OC_$nodename.sh`;
 
-       # `sed -i '/GPUGraphicsClockOffset/d' OC_$nodename.sh`;
-       # `sed -i '/#GRA_anchor/a nvidia-settings -a "[gpu:0]/GPUGraphicsClockOffset[4]=$oc_setting[1]"' OC_$nodename.sh`;   
-       # 
-       # `sed -i '/GPUMemoryTransferRateOffset/d' OC_$nodename.sh`;
-       # `sed -i '/#MEM_anchor/a nvidia-settings -a "[gpu:0]/GPUMemoryTransferRateOffset[4]=$oc_setting[2]"' OC_$nodename.sh`;   
+        `sed -i '/GPUGraphicsClockOffset/d' OC_$nodename.sh`;
+        `sed -i '/#GRA_anchor/a nvidia-settings -a "[gpu:0]/GPUGraphicsClockOffset[4]=$oc_setting[1]"' OC_$nodename.sh`;   
+        
+        `sed -i '/GPUMemoryTransferRateOffset/d' OC_$nodename.sh`;
+        `sed -i '/#MEM_anchor/a nvidia-settings -a "[gpu:0]/GPUMemoryTransferRateOffset[4]=$oc_setting[2]"' OC_$nodename.sh`;   
 
         `sed -i '/GPUTargetFanSpeed/d' OC_$nodename.sh`;
         `sed -i '/#Fan_anchor/a nvidia-settings -a "[fan:0]/GPUTargetFanSpeed=$oc_setting[3]"' OC_$nodename.sh`;   

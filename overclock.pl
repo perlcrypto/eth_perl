@@ -19,7 +19,7 @@ nvidia-smi pmon  : dynamically process monitor
 my %OCsetting = (
     # power w, core freq, mem freq, Fan
     #currentlt, only power is adjusted
-    2060 => [125,"+2145","+7600",85],#2060 --fan 99  --templimit 80
+    2060 => [125,"+200","+1300",85],#2060 --fan 99  --templimit 80
     2080 => [180,"+0","+1800",85],#2080 Ti --fan 80  --templimit 65
 );
 
@@ -28,10 +28,10 @@ my $overclock = "yes";
 my $gpu_info = "yes";
 
 my %nodes = (
-    161 => [39],#1,3,39..
-    182 => [20..24 ]
+    161 => [40],#1,3,39..
+    182 => [20..24]
     );
-my $ip = `ip a`;    
+my $ip = `/usr/sbin/ip a`;    
 $ip =~ /140\.117\.\d+\.(\d+)/;
 my $cluster = $1;
 $cluster =~ s/^\s+|\s+$//;
@@ -45,9 +45,9 @@ if($dnf_install eq "yes"){
     for (@nodes){
         my $nodeindex=sprintf("%02d",$_);
         my $nodename= "node"."$nodeindex";
-        my $cmd = "ssh $nodename ";
+        my $cmd = "/usr/bin/ssh $nodename ";
         print "\$nodename: $nodename\n";
-        system("$cmd  'dnf config-manager --enable powertools'");
+        system("$cmd  '/usr/bin/dnf config-manager --enable powertools'");
     #https://forketyfork.medium.com/centos-8-installation-error-setting-up-base-repository-4a64e7eb2e72
     #https://forketyfork.medium.com/centos-8-no-urls-in-mirrorlist-error-3f87c3466faa    
     #sudo sed -i -e "s|mirrorlist=|#mirrorlist=|g" /etc/yum.repos.d/CentOS-*
@@ -141,9 +141,9 @@ if($overclock eq "yes"){
         system("$cmd 'chmod 755 ./OC_$nodename.sh'");
         #die;
         `$cmd 'rm -f ./nohup.out'`;
-        `$cmd 'nohup ./OC_$nodename.sh'`;
-        `$cmd 'rm ./OC_$nodename.sh'`;
-        `rm -f ./OC_$nodename.sh`;
+        `$cmd 'nohup ./OC_$nodename.sh > ./nohup.out &'`;
+        #`$cmd 'rm ./OC_$nodename.sh'`;
+        #`rm -f ./OC_$nodename.sh`;
 
 ### OC done
 sleep(1);#waiting up for overclocking results

@@ -15,13 +15,14 @@ use Parallel::ForkManager;
 my $forkNo = 1;
 my $pm = Parallel::ForkManager->new("$forkNo");
 
-my $miner = "t-rex";# or lolminer
+#my $miner = "t-rex";# or lolminer
+my $miner = "lolminer";# or lolminer
 
 my %nodes = (
     161 => [1,3,39..42],#1,3,39..
     182 => [20..24]
     );
-my $ip = `ip a`;    
+my $ip = `/usr/sbin/ip a`;    
 $ip =~ /140\.117\.\d+\.(\d+)/;
 my $cluster = $1;
 $cluster =~ s/^\s+|\s+$//;
@@ -39,7 +40,7 @@ for (@nodes){
 $pm->start and next;
     my $nodeindex=sprintf("%02d",$_);
     my $nodename= "node"."$nodeindex";
-    my $cmd = "ssh $nodename ";
+    my $cmd = "/usr/bin/ssh $nodename ";
     my $mining_cmd;
     if(1){#$nodename eq "node01" or $nodename eq "node39" or $nodename eq "node40"){
 #https://ethermine.org/miners/0x7d599d3920fa565957ea81796c05b3f3450531fe/dashboard
@@ -58,7 +59,8 @@ $pm->start and next;
         -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w $nodename 2>&1 >/dev/null &";
         }
         elsif($miner eq "lolminer"){
-        $mining_cmd ="nohup ~/lolminer/lolMiner --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename-$cluster --dualmode TONDUAL --dualpool https://server1.whalestonpool.com --dualuser EQBhjbH5YjuNqskpDdDNib_M4ujBj8SM0UeqEmMtUkRGJTYS --worker $nodename-$cluster 2>&1 >/dev/null &";
+        #$mining_cmd ="nohup ~/lolminer/lolMiner --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename-$cluster --dualmode TONDUAL --dualpool https://server1.whalestonpool.com --dualuser EQBhjbH5YjuNqskpDdDNib_M4ujBj8SM0UeqEmMtUkRGJTYS --worker $nodename-$cluster 2>&1 >/dev/null &";
+        $mining_cmd ="/usr/bin/nohup ~/lolminer/lolMiner --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename-$cluster --dualmode TONDUAL --dualpool https://next.ton-pool.com --dualuser EQBhjbH5YjuNqskpDdDNib_M4ujBj8SM0UeqEmMtUkRGJTYS --worker $nodename-$cluster 2>&1 >/dev/null &";
         }
         #redir for ssl(not work)
         #gminer:
@@ -82,7 +84,7 @@ $pm->start and next;
     -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w $nodename 2>&1 >/dev/null &";
     }
 
-    my $temp = `$cmd "ps aux|grep -v grep|egrep \\\"t-rex|miner\\\""`;
+    my $temp = `$cmd "/usr/bin/ps aux|/usr/bin/grep -v grep|/usr/bin/egrep \\\"t-rex|miner\\\""`;
     print "*****$nodename*****\n";
     print "###node status before all cmd:\n $temp\n";
     
@@ -91,7 +93,7 @@ $pm->start and next;
         
         if($temp){
             print "killing job\n";
-            `$cmd "ps aux|grep -v grep|egrep \\\"t-rex|miner\\\"|awk '{print \\\$2}'|xargs kill"`;
+            `$cmd "/usr/bin/ps aux|/usr/bin/grep -v grep|/usr/bin/egrep \\\"t-rex|miner\\\"|awk '{print \\\$2}'|xargs kill"`;
         }
         else{
              print "No existing job currently!\n";

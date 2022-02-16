@@ -56,7 +56,7 @@ $pm->start and next;
         #HK
         if($miner eq "t-rex"){
         $mining_cmd = "nohup ~/eth/t-rex -a ethash -o stratum+tcp://18.167.166.214:4444 \\
-        -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w $nodename 2>&1 >/dev/null &";
+        -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w $nodename-$cluster 2>&1 >/dev/null &";
         }
         elsif($miner eq "lolminer"){
         #$mining_cmd ="nohup ~/lolminer/lolMiner --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename-$cluster --dualmode TONDUAL --dualpool https://server1.whalestonpool.com --dualuser EQBhjbH5YjuNqskpDdDNib_M4ujBj8SM0UeqEmMtUkRGJTYS --worker $nodename-$cluster 2>&1 >/dev/null &";

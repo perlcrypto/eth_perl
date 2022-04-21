@@ -19,7 +19,7 @@ my $pm = Parallel::ForkManager->new("$forkNo");
 my $miner = "lolminer";# or lolminer
 
 my %nodes = (
-    161 => [1,3,39..42],#1,3,39..
+    161 => [1,3,39..42],#[1,3,39..42],#1,3,39..
     182 => [20..24]
     );
 my $ip = `/usr/sbin/ip a`;    
@@ -27,7 +27,29 @@ $ip =~ /140\.117\.\d+\.(\d+)/;
 my $cluster = $1;
 $cluster =~ s/^\s+|\s+$//;
 #print "\$cluster: $cluster\n";
-my @nodes = @{$nodes{$cluster}};#get node information
+my @allnodes = @{$nodes{$cluster}};#get node information
+my @nodes;
+
+`touch ~/scptest.dat`;
+for (@allnodes){
+    my $nodeindex=sprintf("%02d",$_);
+    my $nodename= "node"."$nodeindex";
+    my $cmd = "/usr/bin/ssh $nodename ";
+    print "****Check $nodename status\n ";
+    #`echo "***$nodename" >> $output`;
+#use scp for ssh test
+	system("scp -o ConnectTimeout=5 ~/scptest.dat jsp\@$nodename:/home/jsp");    
+    if($?){
+		next;
+		}
+	else{
+		print "scp at $nodename ok for ssh test\n";
+        push @nodes, $_;
+		}	
+}
+chomp @nodes;
+print @nodes. "\n";
+
 
 #my $killjobs = "yes";
 my $sumitjobs = "yes";
@@ -105,13 +127,23 @@ $pm->start and next;
         print "#Want to submit job\n";
         print "***Current mining cmd at $nodename: $mining_cmd\n";
         my $GPU = `$cmd "nvidia-smi -L"`;
-        print "**** node: $nodename ,GPU model: $GPU\n";
+       # print "**** node: $nodename ,GPU model: $GPU\n";
+        my $percent = `$cmd "nvidia-smi|grep Default|awk '{print \\\$(NF-2)}'"`;
+        #print "\n\n****  \$percent: $percent\n";
+        $percent  =~ s/^\s+|\s+$//;
+        if($percent eq "0%"){
+            print "Job performance at $nodename is currently 0%,and you need to kill it now\n";
+            print "killing job\n";
+            `$cmd "/usr/bin/ps aux|/usr/bin/grep -v grep|/usr/bin/egrep \\\"t-rex|miner|dptest\\\"|awk '{print \\\$2}'|xargs kill"`;
+            sleep(1);
+        }
+         my $temp1 = `$cmd "/usr/bin/ps aux|/usr/bin/grep -v grep|/usr/bin/egrep \\\"t-rex|miner|dptest\\\""`;
         #$GPU =~/.*\s(\d{4})\s.*/;
         #chomp $1;
         #print "nodename: $nodename -> \$1: $1, overclock: $overclock{$1}\n";   
                  
         #sleep(2);
-        unless($temp){
+        unless($temp1){
             print "Submitting job\n";
             my $pid = fork();
 		    if ($pid == 0) {

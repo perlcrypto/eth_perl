@@ -19,8 +19,10 @@ my $pm = Parallel::ForkManager->new("$forkNo");
 my $miner = "lolminer";# or lolminer
 
 my %nodes = (
+    #161 => [22],#8..18,20..22,39..41],#[1,3,39..42],#1,3,39..
+    #161 => [8..18],#8..18,20..22,39..41],#[1,3,39..42],#1,3,39..
+    #161 => [17],#[1,3,39..42],#1,3,39..
     161 => [1,3,8..18,20..22,39..41],#[1,3,39..42],#1,3,39..
-    #161 => [1,3,39..41],#[1,3,39..42],#1,3,39..
     
     182 => [20..24]
     );
@@ -60,6 +62,8 @@ my $killjobs = "no";
 #my $sumitjobs = "no";
 
 my $checkstatus = "yes";
+`rm -f ./dupJobs.dat`;
+`touch ./dupJobs.dat`;
 for (@nodes){
 $pm->start and next;
     my $nodeindex=sprintf("%02d",$_);
@@ -113,10 +117,15 @@ $pm->start and next;
     my $temp = `$cmd "/usr/bin/ps aux|/usr/bin/grep -v grep|/usr/bin/egrep \\\"t-rex|miner|dptest\\\""`;
     print "*****$nodename*****\n";
     print "###node status before all cmd:\n $temp\n";
-    
-    if($killjobs eq "yes"){
+    my @temp = `$cmd "/usr/bin/nvidia-smi|grep /home/jsp"`;
+    chomp @temp;
+    my $gpujob = @temp;
+#    print "\n\n********\n@temp $gpujob\n";
+#sleep(2);
+#    die;
+    if($killjobs eq "yes" or $gpujob != 1){
         print "#Want to kill job\n";
-        
+        `echo "Dup: job No. in $nodename: $gpujob" >> dupJobs.dat`;
         if($temp){
             print "killing job\n";
             `$cmd "/usr/bin/ps aux|/usr/bin/grep -v grep|/usr/bin/egrep \\\"t-rex|miner|dptest\\\"|awk '{print \\\$2}'|xargs kill"`;
@@ -135,6 +144,8 @@ $pm->start and next;
         #print "\n\n****  \$percent: $percent\n";
         $percent  =~ s/^\s+|\s+$//;
         if($percent eq "0%"){
+            `echo "*** 0% performance in $nodename" >> dupJobs.dat`;
+            
             print "Job performance at $nodename is currently 0%,and you need to kill it now\n";
             print "killing job\n";
             `$cmd "/usr/bin/ps aux|/usr/bin/grep -v grep|/usr/bin/egrep \\\"t-rex|miner|dptest\\\"|awk '{print \\\$2}'|xargs kill"`;

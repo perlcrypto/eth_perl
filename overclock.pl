@@ -1,3 +1,5 @@
+#cat /proc/driver/nvidia/version
+#modinfo nvidia
 #http://blog.zencoffee.org/2021/05/nvidia-overclocking-headless/
 =b
 nvidia-smi -L:

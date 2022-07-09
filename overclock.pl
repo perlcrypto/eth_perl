@@ -23,7 +23,7 @@ my %OCsetting = (
     #currentlt, only power is adjusted
     2060 => [125,"+200","+1300",85],#2060 --fan 99  --templimit 80
     2080 => [180,"+0","+1800",85],#2080 Ti --fan 80  --templimit 65
-    3060 => [120,"+200","+1300",95]
+    3060 => [120,"+200","+2400",95]
 );
 
 my $dnf_install = "no"; # yes for the first time setting

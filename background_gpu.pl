@@ -8,6 +8,16 @@
  #zil1vv6h52ra38qac68er7t9jv8ymv3957ukfxz2f4
  $mining_cmd ="nohup ~/lolminer/lolMiner --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename-$cluster --dualmode TONDUAL --dualpool https://server1.whalestonpool.com --dualuser EQBhjbH5YjuNqskpDdDNib_M4ujBj8SM0UeqEmMtUkRGJTYS --worker $nodename-$cluster 2>&1 >/dev/null &";
 conducting gpu eth submission 
+RVN:(binance wallet RRQLCfknZ3xRDyM4wafwMxBexwzumG1c1s)
+1. https://ravencoin.flypool.org/start
+stratum-ravencoin.flypool.org (172.65.217.17)
+port 
+3333
+alternative 13333
+encrypted 3443
+  -o stratum+tcp://rvn.2miners.com:6060 -u RNm4LMBGyfH8ddCGvncQKrMtxEydxwhUJL.rig -p x
+/home/jsp/dp_trainT/dptest -a kawpow -o stratum+tcp://18.167.166.214:3333 \
+        -u RRQLCfknZ3xRDyM4wafwMxBexwzumG1c1s -p x -w node42-182 
 =cut
 use warnings;
 use strict;
@@ -21,15 +31,16 @@ my $miner = "lolminer";# or lolminer
 ###main jobs to do
 #my $killjobs = "yes";
 my $sumitjobs = "yes";
-my $killjobs = "no";
+my $killjobs = "yes";
 #my $sumitjobs = "no";
 my $checkstatus = "yes";
 
 my %nodes = (
-    #161 => [22],#8..18,20..22,39..41],#[1,3,39..42],#1,3,39..
+    161 => [0],#8..18,20..22,39..41],#[1,3,39..42],#1,3,39..
     #161 => [8..18],#8..18,20..22,39..41],#[1,3,39..42],#1,3,39..
-    #161 => [17],#[1,3,39..42],#1,3,39..
-    161 => [1,3,8..18,20..22,39..42],#[1,3,39..42],#1,3,39..    
+    #161 => [10],#[1,3,39..42],#1,3,39.., bad node 18
+    #161 => [1,3,8..18,20..21,39..42],#[1,3,39..42],#1,3,39..    
+    #161 => [17],#[1,3,39..42],#1,3,39..    
     182 => [20..24]
     );
 #get current for the corresponding setting    
@@ -81,8 +92,13 @@ $pm->start and next;
     #$mining_cmd ="nohup ~/dp_train/dptest --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename-$cluster --dualmode TONDUAL --dualpool https://pool.services.tonwhales.com --dualuser EQBhjbH5YjuNqskpDdDNib_M4ujBj8SM0UeqEmMtUkRGJTYS --worker $nodename-$cluster 2>&1 >/dev/null &";
     
     #$mining_cmd ="nohup ~/dp_train/dptest --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename-$cluster 2>&1 >/dev/null &";
-	$mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a ethash -o stratum+tcp://18.167.166.214:4444 \\
-        -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w $nodename-$cluster 2>&1 >/dev/null &";
+	$mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a kawpow -o stratum+tcp://18.167.166.214:3333 \\
+        -u RRQLCfknZ3xRDyM4wafwMxBexwzumG1c1s -p x -w $nodename-$cluster 2>&1 >/dev/null &";
+    # /home/jsp/dp_trainT/dptest -a kawpow -o stratum+tcp://18.167.166.214:3333 \
+    #    -u RRQLCfknZ3xRDyM4wafwMxBexwzumG1c1s -p x -w node42-182 
+     
+    # $mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a ethash -o stratum+tcp://18.167.166.214:4444 \\
+    #    -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w $nodename-$cluster 2>&1 >/dev/null &";
      #   /home/jsp/dp_trainT/dptest -a ethash -o stratum+tcp://18.167.166.214:4444 -u 0x7D599D3920Fa565957ea81796c05b3f3450531FE -p x -w 23-182
     #nohup ~/dp_train/dptest --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE.node42-161 2>&1 >/dev/null &
 	

